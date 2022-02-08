@@ -1,8 +1,7 @@
-package com.blog.Blog.service;
+package com.blog.Blog.security.services;
 
 import com.blog.Blog.model.User;
 import com.blog.Blog.repository.UserRepository;
-import com.blog.Blog.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,7 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
         User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User name " + username + " not found"));
+                .orElseThrow(() -> new UsernameNotFoundException("User name: " + username + " not found"));
 
         return UserDetailsImpl.build(user);
     }
