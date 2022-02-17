@@ -8,5 +8,8 @@ import java.util.UUID;
 
 @Repository
 public interface MessageRepository extends CrudRepository<Message, UUID> {
-    public Message findByUserId(Long userId);
+    public Message findByUsername(String username);
+
+
+    public Message findFirstByUsernameOrderByPostDateDesc(String username);
 }
