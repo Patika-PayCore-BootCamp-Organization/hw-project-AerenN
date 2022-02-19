@@ -12,4 +12,7 @@ public class LikeInput {
         this.username = username;
         this.messageId = messageId;
     }
+
+    public LikeInput() {
+    }
 }

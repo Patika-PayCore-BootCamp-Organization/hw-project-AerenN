@@ -4,6 +4,7 @@ import com.blog.Blog.exception.UserNotPermitedException;
 import com.blog.Blog.model.Message;
 import com.blog.Blog.model.MessageInput;
 import com.blog.Blog.repository.MessageRepository;
+import com.blog.Blog.repository.UserRepository;
 import com.blog.Blog.security.services.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -19,6 +20,9 @@ public class MessageService {
     @Autowired
     private MessageRepository messageRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public Message getLastMessage(String username){
         return messageRepository.findFirstByUsernameOrderByPostDateDesc(username);
     }
@@ -31,10 +35,15 @@ public class MessageService {
 
     }
 
+    /**
+     * Get logged in username and post a new message on behalf of the user
+     * @param messageInput
+     * @return savedMessage
+     */
     public Message postNewMessage(MessageInput messageInput) {
         Message message = new Message (UUID.randomUUID(), messageInput.getContent(),
                 messageInput.getTag(),
-                messageInput.getUsername()
+                getPrincipal().getUsername()
                 );
         return messageRepository.save(message);
     }
@@ -66,7 +75,10 @@ public class MessageService {
         return null;
     }
 
-    // return username of the user
+    /**
+     * Gets User Credentials from authentication Cookie
+     * @return User Details Impl
+     */
     private UserDetailsImpl getPrincipal(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return (UserDetailsImpl) auth.getPrincipal();

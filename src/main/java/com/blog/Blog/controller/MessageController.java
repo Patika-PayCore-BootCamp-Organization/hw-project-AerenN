@@ -46,7 +46,7 @@ public class MessageController {
         messageService.removeMessageByMessageId(UUID.fromString(messageId));
     }
 
- //   @PreAuthorize("#username == authentication.principal.username")
+//  @PreAuthorize("#username == authentication.principal.username")
     @DeleteMapping(path = "/deleteMessage")
     public void deleteMessage(@RequestParam String messageId){
         if (messageId != null) {

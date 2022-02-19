@@ -1,0 +1,22 @@
+version: '3.2'
+
+services:
+
+  fakebook-service:
+    container_name: fakebook-service
+    image: fakebook-service:latest
+    build:
+      #context: fakebook-service
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq

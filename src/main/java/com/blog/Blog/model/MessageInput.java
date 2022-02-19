@@ -6,5 +6,4 @@ import lombok.Data;
 public class MessageInput {
     private String content;
     private String tag;
-    private String username;
 }
