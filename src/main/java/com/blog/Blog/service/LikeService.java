@@ -48,7 +48,7 @@ public class LikeService {
         Message message = messageService.getMessageByMessageId(UUID.fromString(likeInput.getMessageId()));
         boolean addedLike = message.addLikedUser(likeInput.getUsername());
         if (addedLike){
-            return messageService.saveMessage(message);
+            messageService.saveMessage(message);
         }
         sendUserLikedMessageEvent(likeInput, message.getTag());
         return message;
