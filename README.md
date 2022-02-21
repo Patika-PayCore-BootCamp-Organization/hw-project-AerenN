@@ -45,7 +45,7 @@ Before you start to use the app
 >>INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 
 
-to Database Manually. As RoleRepository will be empty.
+to ROLES in Database Manually. Because RoleRepository will be empty.
 
 Then: >> You will need Postman to create users and do actions << Please import Blog.postman_collection.json file from repository in your Postman Collections. 
 
