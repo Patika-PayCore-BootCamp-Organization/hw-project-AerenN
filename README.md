@@ -33,9 +33,9 @@ If you have Docker configurations, it's compatible but that's optional. You only
 
 --- How Does The App Work? ---
 
-Before you start to use the app 
+When you start the app, 
 
- - You will need to add:
+ - First you will need to open H2 database and add:
 
 
 >>INSERT INTO roles(name) VALUES('ROLE_USER');
@@ -45,7 +45,7 @@ Before you start to use the app
 >>INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 
 
-to ROLES in Database Manually. Because RoleRepository will be empty.
+to ROLES in Database Manually. Because you can't signup or login without ROLES and database will be empty.
 
 Then: >> You will need Postman to create users and do actions << Please import Blog.postman_collection.json file from repository in your Postman Collections. 
 
