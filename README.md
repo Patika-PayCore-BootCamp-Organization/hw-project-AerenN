@@ -33,7 +33,21 @@ If you have Docker configurations, it's compatible but that's optional. You only
 
 --- How Does The App Work? ---
 
-Before you start to use the app >> You will need Postman to create users and do actions << Please import Blog.postman_collection.json file from repository in your Postman Collections. 
+Before you start to use the app 
+
+ - You will need to add:
+
+
+>>INSERT INTO roles(name) VALUES('ROLE_USER');
+>>
+>>INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
+>>
+>>INSERT INTO roles(name) VALUES('ROLE_ADMIN');
+
+
+to Database Manually. As RoleRepository will be empty.
+
+Then: >> You will need Postman to create users and do actions << Please import Blog.postman_collection.json file from repository in your Postman Collections. 
 
 The app has JWT, and 3 roles of users. When you signup a new user, you can define yourself as admin, moderator or user.  You can signin with username and password you created. There you will get a generated Cookie with JWT inside. Copy it or add to sync on Postman because you will need that token for most actions. Then you can send post message with "message context" and a "tag". You will get an auto generated messageId inside the response. Use that messageId to like or delete message.
 
