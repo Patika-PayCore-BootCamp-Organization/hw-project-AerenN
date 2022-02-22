@@ -33,7 +33,7 @@ If you have Docker configurations, it's compatible but that's optional. You only
 
 --- How Does The App Work? ---
 
-When you start the app, 
+When you start the app, ***IF you haven't imported the testdb*** :::>
 
  - First you will need to open H2 database and add:
 
@@ -45,7 +45,7 @@ When you start the app,
 >>INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 
 
-to ROLES in Database Manually. Because you can't signup or login without ROLES and database will be empty.
+to ROLES in Database Manually. !! ***Otherwise the app will not work*** !! Because you can't signup or login without ROLES and database will be empty.
 
 Then: >> You will need Postman to create users and do actions << Please import Blog.postman_collection.json file from repository in your Postman Collections. 
 
