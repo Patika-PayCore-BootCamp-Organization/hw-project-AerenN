@@ -33,7 +33,7 @@ If you have Docker configurations, it's compatible but that's optional. You only
 
 --- How Does The App Work? ---
 
-When you start the app, ***IF you haven't imported the testdb*** :::>
+When you start the app :::>
 
  - First you will need to open H2 database and add:
 
